@@ -1,11 +1,28 @@
-* {
-  box-sizing: border-box;
+.icon-pinglun {
+  margin-left: 15px;
 }
-html,body {
-  margin: 0;
-  padding: 0;
+.iconfont {
+  margin-right: 10px;
 }
-html,body {
-  height: 100%;
+.userinfo {
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+
+.avatar {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #009688;
+}
+.userinfo img, .avatar{
+  display: none;
+}
+iframe {
   width: 100%;
+  height: 100%;
 }

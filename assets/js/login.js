@@ -3,7 +3,7 @@
  * @Author: shengnan
  * @Date: 2020-10-28 16:02:34
  * @LastEditors: shengnan
- * @LastEditTime: 2020-10-28 21:01:05
+ * @LastEditTime: 2020-10-31 15:39:25
  */
 
 /*--------------切换登录/注册页面-------------*/
@@ -15,13 +15,13 @@ $('.tologin').on('click',function(){
 });
 
 /*--------------提交注册表单-------------*/
-$('.layui-form').on('submit',function(ev){
+$('.register form').on('submit',function(ev){
   ev.preventDefault();
   let data = $(this).serialize();
 
   $.ajax({
     type:'post',
-    url:'http://ajax.frontend.itheima.net/api/reguser',
+    url:'/api/reguser',
     data:data,
     success:res => {
       this.reset();
@@ -43,3 +43,21 @@ form.verify({
     }
   }
 });
+
+/*--------------实现登录跳转-------------*/
+$('.login form').on('submit',function(e){
+  e.preventDefault();
+  $.ajax({
+    type:'post',
+    url:'/api/login',
+    data:$(this).serialize(),
+    success:function(res){
+      layer.msg(res.message);
+      if(res.status == 0) {
+        localStorage.setItem('token',res.token);
+        location.href = '/index.html';
+      }
+    },
+  });
+});
+
